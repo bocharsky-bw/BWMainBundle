@@ -1,0 +1,47 @@
+###########
+# BACKEND #
+###########
+admin_root:
+    host:     %domain%
+    pattern:  /_admin/
+    defaults:
+        _controller:  FrameworkBundle:Redirect:urlRedirect
+        path:         /%locale%/_admin/
+        permanent:    true
+    requirements:
+        _locale: %locales%
+        
+admin:
+    host:     %domain%
+    pattern:  /{_locale}/_admin/
+    defaults: { _controller: BWMainBundle:Admin/Main:index, _locale: %locale% }
+    requirements:
+        _locale: %locales%
+        
+admin_config:
+    host:     %domain%
+    pattern:  /{_locale}/_admin/config
+    defaults: { _controller: BWMainBundle:Admin/Main:config, _locale: %locale% }
+    requirements:
+        _locale: %locales%
+    
+
+############
+# FRONTEND #
+############
+home_root:
+    host:     %domain%
+    pattern:  /
+    defaults:
+        _controller:  FrameworkBundle:Redirect:urlRedirect
+        path:         /%locale%/
+        permanent:    true
+    requirements:
+        _locale: %locales%
+        
+home:
+    host:     %domain%
+    pattern:  /{_locale}/
+    defaults: { _controller: BWMainBundle:Main:index }
+    requirements:
+        _locale: %locales%
