@@ -15,7 +15,7 @@ Installing
         {
             $bundles = array(
                 // other bundles here...
-                **new BW\MainBundle\BWMainBundle(),**
+                new BW\MainBundle\BWMainBundle(),
             );
 
             // other code here...
